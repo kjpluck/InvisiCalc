@@ -1,0 +1,106 @@
+// InvisiCalc resources.
+
+/*
+    Copyright 2009 by Kevin Pluck
+
+    This file is part of InvisiCalc.
+
+    InvisiCalc is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    InvisiCalc is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with InvisiCalc.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include <windows.h>
+#include "InvisiCalc.h"
+
+IDI_42 ICON "InvisiCalc.ico"
+
+IDM_CONTEXTMAIN MENUEX DISCARDABLE
+BEGIN
+	POPUP "You'll never see this", IDM_CONTEXTPOPUP
+	BEGIN
+		MENUITEM "&Help", IDM_HELP, MFT_STRING, MFS_ENABLED
+		MENUITEM "&About", IDM_ABOUT, MFT_STRING, MFS_ENABLED
+		MENUITEM "E&xit", IDM_EXIT, MFT_STRING, MFS_ENABLED
+	END
+END
+
+IDD_ABOUT DIALOG DISCARDABLE 0, 0, 239, 180
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About InvisiCalc"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,174,18,50,14
+    GROUPBOX        INVISICALCVERSION,IDC_STATIC,7,7,225,166
+    LTEXT
+"InvisiCalc is a calculator that watches for mathematical expressions copied to the clipboard. \
+InvisiCalc then evaluates them and displays the result in a system tray bubble where it can be copied.\r\n\r\nCopyright 2009 by Kevin Pluck.",
+    IDC_STATIC,16,18,144,67
+
+    PUSHBUTTON APPLINK, IDC_LINK,16,75,144,12
+
+    LTEXT
+"InvisiCalc is free software: you can redistribute it and/or modify \
+it under the terms of the GNU General Public License as published by \
+the Free Software Foundation, either version 3 of the License, or \
+(at your option) any later version.\
+\n\n\
+InvisiCalc is distributed in the hope that it will be useful, \
+but WITHOUT ANY WARRANTY; without even the implied warranty of \
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the \
+GNU General Public License for more details.",
+    IDC_STATIC,16,90,210,80
+END
+
+
+IDD_HELP DIALOG DISCARDABLE 0, 0, 239, 300
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "InvisiCalc Help"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,174,18,50,14
+    GROUPBOX        "Help",IDC_STATIC,7,7,225,286
+    LTEXT
+"InvisiCalc is a calculator that watches for mathematical expressions copied to the clipboard. \
+InvisiCalc then evaluates them and displays the result in a system tray bubble where it can be copied.",
+    IDC_STATIC,16,18,144,67
+
+    LTEXT
+"Operators used:\n\r\
+\t+ - * /\tAddition Subtraction Multiplication Division\n\r\
+\t^\tPower\n\r\
+\t%\tmod\n\r\
+\t\n\r\
+Functions Used:\n\r\
+\tsqrt\tSquare Root\n\r\
+\texp\tExponential Function\n\r\
+\tsin\tSine\n\r\
+\tcos\tCosine\n\r\
+\ttan\tTangent\n\r\
+\tacos\tInverse Cosine\n\r\
+\tasin\tInverse Sine\n\r\
+\tatan\tInverse Tangent\n\r\
+\tsinh\tHyperbolic Sine\n\r\
+\tcosh\tHyperbolic Cosine\n\r\
+\ttanh\tHyperbolic Tangent\n\r\
+\tln\tNatural Logarithm\n\r\
+\tlog\tBase 10 Logarithm\n\r\
+\t\n\r\
+Constants used:\n\r\
+\tpi\t3.14159265358979323846\n\r\
+\te\t2.71828182845904523536\n\r\
+\tc\t299792458\n\r\
+\tgamma\t0.57721566490153286060\n\r\
+\tphi\t1.61803398874989484820\n\r\
+\t",
+    IDC_STATIC,16,70,210,200
+END
