@@ -1,0 +1,36 @@
+TARGET := InvisiCalc
+
+SRCS = Evaluate.c InvisiCalc.c
+RCFILE = InvisiCalcRes.rc
+OBJS = $(SRCS:.c=.o) $(RCFILE:.rc=.o)
+
+LIBS = -mwindows # -lmingw32
+
+# TOOLS_PREFIX := i686-w64-mingw32-
+TOOLS_PREFIX := x86_64-w64-mingw32-
+
+CC = $(TOOLS_PREFIX)gcc
+WINDRES = $(TOOLS_PREFIX)windres
+
+UNIXTEST = $(shell uname -r 2> /dev/null)
+ifeq ($(UNIXTEST),)
+  RM = del
+else
+  RM = rm -f
+endif
+
+all: $(TARGET)
+
+.c.o:
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+.rc.o:
+	$(WINDRES) $< $@
+
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $(OBJS) $(LIBS)
+
+clean:
+	$(RM) $(OBJS) $(TARGET) *~
+
+.SUFFIXES: .rc .res

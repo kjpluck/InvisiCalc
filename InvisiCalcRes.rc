@@ -19,8 +19,8 @@
     along with InvisiCalc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <windows.h>
 #include "InvisiCalc.h"
+#include <windows.h>
 
 IDI_42 ICON "InvisiCalc.ico"
 
